@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Video ke MP3</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title center-align">Konversi Video ke Format Lain</span>
+                        
+                        <form id="converter-form" method="POST" enctype="multipart/form-data">
+                            <div class="file-field input-field">
+                                <div class="btn blue">
+                                    <span>Pilih File</span>
+                                    <input type="file" name="file" id="file-input" accept=".mp4,.avi,.mov,.mkv" required>
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Unggah file video (MP4, AVI, MOV, MKV)">
+                                </div>
+                            </div>
+                            
+                            <div class="input-field">
+                                <select name="format" id="format-select" required>
+                                    <option value="" disabled selected>Pilih format output</option>
+                                    <option value="mp3">MP3 (Audio)</option>
+                                    <option value="gif">GIF</option>
+                                </select>
+                                <label>Format Output</label>
+                            </div>
+                            
+                            <div class="progress" id="progress-bar" style="display: none;">
+                                <div class="indeterminate"></div>
+                            </div>
+                            
+                            <div id="status-message" class="center-align" style="margin: 15px 0;"></div>
+                            
+                            <div class="center-align">
+                                <button class="btn waves-effect waves-light" type="submit" id="convert-btn">
+                                    Konversi
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <div class="card-panel blue lighten-5">
+                    <h5 class="center-align">Panduan Penggunaan</h5>
+                    <ol>
+                        <li>Pilih file video yang ingin dikonversi</li>
+                        <li>Pilih format output (MP3 untuk ekstrak audio)</li>
+                        <li>Klik tombol "Konversi"</li>
+                        <li>Tunggu proses selesai dan file akan otomatis terunduh</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
